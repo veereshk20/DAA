@@ -38,3 +38,7 @@ int main() {
     printf("Square root of %f is %f\n", x, sqrt_x);
 }
 
+/*1. we initialise left as 1 and right as the given number x
+  2. until left <= right, using binary search method we find the closest root of the number x
+  3. with a precision of 0.001, we update the result each time until it becomes greater than the number x
+  4. the last passed value is returned as the result for square root of x*/ 

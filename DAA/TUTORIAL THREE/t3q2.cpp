@@ -1,84 +1,70 @@
-#include <stdio.h>
-#include <stdlib.h>
-//remove inversions
-//T.C. O(nlogn)
-//S.C. O(n)
-long long merge(int arr[], int temp[], int left, int mid, int right) {
-    int i = left;       // Index for left subarray
-    int j = mid + 1;    // Index for right subarray
-    int k = left;       // Index for merged subarray
-    long long inversions = 0;
-
-    while (i <= mid && j <= right) {
-        if (arr[i] <= arr[j]) {
-            temp[k++] = arr[i++];
-        } else {
-            temp[k++] = arr[j++];
-            inversions += (mid - i + 1); // Count inversions
+//TIME COMPLEXITY O(NLOG(N))
+#include<bits/stdc++.h>
+using namespace std;
+void divide(int *qtr, int si, int ei);
+void conquer(int *qtr, int si, int mid, int ei);
+int counter = 0;
+int main()
+{
+    int *ptr, n;
+    cout<<"Enter the number of elements in the array:";
+    cin>>n;
+    ptr = (int *) malloc(n * sizeof(int));
+    for(int i=0; i<n; i++)
+    {
+        cin>>ptr[i];
+    }
+    divide(ptr, 0, n-1);
+    cout<<"COUNT"<<counter<<endl;
+    for(int i=0; i<n; i++)
+    {
+        cout<<ptr[i]<<" ";
+    }
+    free(ptr);
+}
+void divide(int *qtr, int si, int ei)            //DIVIDING THE ARRAY RECURSIVELY UNTIL SI==EI
+{
+    if(si>=ei)
+        return;
+    
+    int mid = si + (ei-si)/2; 
+    divide(qtr, si, mid);
+    divide(qtr,mid+1,ei);
+    conquer(qtr,si,mid,ei);
+}
+void conquer(int *qtr, int si, int mid, int ei)         //MERGING THE ARRAYS AND SORTING THEM SIMULTANEOUSLY
+{
+    int s = ei-si+1;
+    int arr[ei-si+1];
+    int i1 = si;
+    int i2 = mid+1;
+    int i3 = 0;
+    while(i1<=mid && i2<=ei)
+    {
+        if(qtr[i1]<=qtr[i2])
+        {
+            arr[i3++] = qtr[i1++];
+            //counter+=1;
+        }
+        else
+        {
+            counter+=mid-i1+1;
+            arr[i3++] = qtr[i2++];
         }
     }
-
-    while (i <= mid) {
-        temp[k++] = arr[i++];
+    while(i1<=mid)
+    {
+        arr[i3++] = qtr[i1++];
+        //counter+=1;
     }
-
-    while (j <= right) {
-        temp[k++] = arr[j++];
+    while(i2<=ei)
+    {
+        arr[i3++] = qtr[i2++];
+        //counter+=1;
     }
-
-    for (i = left; i <= right; i++) {
-        arr[i] = temp[i];
+    for(int i=0, j=si; i<s; i++, j++)
+    {
+        qtr[j] = arr[i];
     }
-
-    return inversions;
-}
-
-long long mergeSort(int arr[], int temp[], int left, int right) {
-    long long inversions = 0;
-
-    if (left < right) {
-        int mid = (left + right) / 2;
-
-        inversions += mergeSort(arr, temp, left, mid);
-        inversions += mergeSort(arr, temp, mid + 1, right);
-        inversions += merge(arr, temp, left, mid, right);
-    }
-
-    return inversions;
-}
-
-void removeInversions(int arr[], int n) {
-    int *temp = (int*)malloc(n * sizeof(int));
-    if (temp == NULL) {
-        printf("Memory allocation failed!\n");
-        return;
-    }
-
-    long long inversions = mergeSort(arr, temp, 0, n - 1);
-
-    printf("Number of inversions removed: %lld\n", inversions);
-
-    free(temp);
-}
-
-int main() {
-    int arr[] = {9, 6, 4, 5, 8, 1, 2, 7, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original array: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    removeInversions(arr, n);
-
-    printf("Array after removing inversions: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    return 0;
 }
 

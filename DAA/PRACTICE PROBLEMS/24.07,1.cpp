@@ -35,3 +35,8 @@ int main() {
 
 /*In the worst case, the loop will run approximately 'y' times, 
 because 'r' becomes 0 when 'y' divides 'x' completely. So, the number of iterations is roughly proportional to 'y'.*/
+
+/*1. we find min of the 2 elements
+  2. divide the greater number by the smaller number
+  3. remainder is stored and the greater number is updated with the quotient
+  4. the remainder of the last before step is the GCD of the 2 given numbers*/

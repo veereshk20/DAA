@@ -40,3 +40,39 @@ because 'r' becomes 0 when 'y' divides 'x' completely. So, the number of iterati
   2. divide the greater number by the smaller number
   3. remainder is stored and the greater number is updated with the quotient
   4. the remainder of the last before step is the GCD of the 2 given numbers*/
+//METHOD 2
+// #include<bits/stdc++.h>
+// using namespace std;
+// int gcd(int m, int n)
+// {
+//     if(m%n!=0)
+//     {
+//         m = n;
+//         n = m%n;
+//         return gcd(m,n);
+//     }
+//     else
+//     {
+//         return n;
+//     }
+// }
+// int main()
+// {
+//     int m, n, div;
+//     cin>>m>>n;
+//     if(m==0 && n==0)
+//     {
+//         cout<<0;
+//         return 0;
+//     }
+//     if(m>=n)
+//     {
+//         div = gcd(m,n);
+//     }
+//     else
+//     {
+//         div = gcd(n,m);
+//     }
+//     cout<<"The GCD of "<<m<<" and "<<n<<" is "<<div<<endl;
+// }
+

@@ -61,3 +61,20 @@ int main() {
     allFactorsAndSum(n);
     return 0;
 }
+
+/*(i)1. iteratively we check the factors of given number till root(n)
+     2. if the factor is a prime, we print it
+     3. if given number divided by the factor is also a prime, we print it
+     4. isPrime checks from 5 to root(number), if the number has a factor it returns 0. Else we return 1.
+     
+  (ii)1. we check from 2 to root(number)
+      2. if we find a factor, we check for prime
+      3. if it is a prime, then we print it and divide the number by the prime factor
+      4. after checking till root(number), we check if n(number which has been divided by the prime factors in loop) is greater
+         than 1 and also a prime. If it is, then we print it
+         
+  (iii)1. we check from 1 to root(number)
+       2. if we find a factor, we print it
+       3. if the number divided by the factor is a distinct factor, then we print it
+       
+  (iv)1. the process is same as (iii), but here we have a sum variable, which updates the sum each time, when finding a distinct factor*/

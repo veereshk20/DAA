@@ -36,3 +36,9 @@ int main() {
     return 0;
 }
 
+/* (i)1. sum is initialised as 0
+      2. sum is updated each time iteratively with the digits of the number, from 1's position
+      
+   (ii)1. digitCount[10] stores the number of times a particular digit appeared in the number
+       2. sum is initialised as 0
+       3. sum is updated in a similar way to (i), only when digit's count is 0, it is considered to be updated in sum, to avoid repetitions*/

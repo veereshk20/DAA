@@ -36,3 +36,6 @@ int main() {
     }
 }
 
+/*1. we take two variables min and secondMin
+  2. if a value is less than min, we update min by that element and secondMin by min
+  3. we also check if any element is not less than min, but less than secondMin, then we update secondMin by that element*/

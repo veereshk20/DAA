@@ -35,3 +35,38 @@ int main() {
 
 /*In the worst case, the loop will run approximately 'y' times, 
 because 'r' becomes 0 when 'y' divides 'x' completely. So, the number of iterations is roughly proportional to 'y'.*/
+//METHOD 2
+// #include<bits/stdc++.h>
+// using namespace std;
+// int gcd(int m, int n)
+// {
+//     if(m%n!=0)
+//     {
+//         m = n;
+//         n = m%n;
+//         return gcd(m,n);
+//     }
+//     else
+//     {
+//         return n;
+//     }
+// }
+// int main()
+// {
+//     int m, n, div;
+//     cin>>m>>n;
+//     if(m==0 && n==0)
+//     {
+//         cout<<0;
+//         return 0;
+//     }
+//     if(m>=n)
+//     {
+//         div = gcd(m,n);
+//     }
+//     else
+//     {
+//         div = gcd(n,m);
+//     }
+//     cout<<"The GCD of "<<m<<" and "<<n<<" is "<<div<<endl;
+// }

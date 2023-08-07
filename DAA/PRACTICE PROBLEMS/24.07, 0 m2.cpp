@@ -59,3 +59,8 @@ int main()
          printf("the number which is neither max nor min is %d",z);
     }
 }
+
+/*1. a[] stores elements from user
+  2. b[3] will store first 3 unique elements from a[]
+  3. if b[2] remains -1, then there won't be a number which is neither min nor max
+  4. else, we check for an element which is neither min nor max in b[3]*/

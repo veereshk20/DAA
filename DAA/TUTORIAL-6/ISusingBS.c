@@ -6,13 +6,10 @@ int binarySearch(int a[],int start,int end,int key)
  
     if(key>=a[mid])
       {
+         if(mid+1>end)
+            return -1;
          if(key<a[mid+1])
-            {
-                if(mid+1>end)
-                   return mid;
-                else
-                   return mid+1;  
-            }       
+           return mid+1;          
          else
             return binarySearch(a,mid+1,end,key);
       }
@@ -41,19 +38,18 @@ void main()
         key=arr[i];
         j=i-1;
         k=binarySearch(arr,0,j,key);
-        while(j>=k)
+        while(j>=k && k!=-1)
         {
             arr[j+1]=arr[j];
             j--;
         }
-
-        arr[k]=key;
+        
+        arr[j+1]=key;
     }   
 
     for(int i=0;i<n;i++)
        printf("%d ",arr[i]);
     
 }
-
 
 

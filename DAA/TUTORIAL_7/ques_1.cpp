@@ -6,9 +6,9 @@ int  palin(char k[],int a,int b)
     int d;
     if(b==a)
       return 1;
-    for(int i=a;i<a+(b-a)/2;i++)
+    for(int i=0;i<(b-a+1)/2;i++)
     {
-        if(k[i]==k[b-i])
+        if(k[a+i]==k[b-i])
          d=1;
         else
         {

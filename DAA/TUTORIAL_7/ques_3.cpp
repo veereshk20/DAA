@@ -76,23 +76,14 @@ int main()
     }
     ptr = qtr;
     qtr = head;
-    while(qtr!=NULL)
+    for(int i = 0; i<n; i++)
     {
         if(qtr->data==2)
         {
-            if(qtr->prev==NULL)
+            
+            if(qtr->next==NULL)
             {
-                struct node * temp = qtr->next;
-                head = qtr->next;
-                ptr->next = qtr;
-                qtr->prev = ptr;
-                head->prev = NULL;
-                ptr = ptr->next;
-                ptr->next = NULL;
-                qtr = temp;         
-            }
-            else if(qtr->next==NULL)
-            {
+                qtr = qtr->next;
                 continue;
             }
             else
@@ -103,7 +94,7 @@ int main()
                 ptr->next = qtr;
                 qtr->prev = ptr;
                 ptr = ptr->next;
-                qtr->next = NULL;
+                ptr->next = NULL;
                 qtr = temp;
             }
         }
@@ -111,7 +102,7 @@ int main()
         {
             qtr = qtr->next;
         }
-        cout<<1;
+        
     }
     qtr = head;
     for(int i = 0; i<n; i++)

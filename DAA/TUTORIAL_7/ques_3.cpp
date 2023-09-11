@@ -36,7 +36,7 @@ int main()
         }
     }
     struct node *qtr = head;
-    while(qtr!=NULL)
+    for(int i = 0; i<n; i++)
     {
         if(qtr->data==0)
         {

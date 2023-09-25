@@ -1,0 +1,7 @@
+1. Problems on sorting, competitive prog - get it eval by TAs today.
+
+2. Implement COIN CHANGE - Brute Force, Greedy (if applicable), DP ; (i) R1,R3,R5 (ii) R1,R3,R4 (iii) Ra, Rb, Rc (iv) R1,R2,...,Rk
+
+3. Suppose, each denominations has a cap, i.e., l_i denotes the maximum number of coins available for the denomination d_i.   Solve COIN-CHANGE with this constraint.
+
+4. Does there exist a greedy algorithm to solve SORTING.   If yes, discover a logic and implement.

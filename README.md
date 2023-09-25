@@ -1,8 +1,7 @@
 # DAA
 DESIGN AND ANALYSIS OF ALGORITHMS GIT 
 
-hello everyone, anime is love!
-plz don't hate me uwu
+DO TUTORIAL 7 QUESTION 2 @EVERYONE
 =======
 
 CODERS ASSEMBLE

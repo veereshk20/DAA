@@ -1,3 +1,8 @@
+// Given a string, find the minimum number of partitions (substring) such that each partition is a palindrome.
+// Sample input and output:
+// ABAC =⇒ Partition-1 = ABA, Partition-2 = C. Minimum number of partitions are 2
+// ABAABAAC =⇒ Partition-1 = ABAABA, Partition-2 = B, Partition-3 = C. Minimum number of partitions are 3.
+
 #include <bits/stdc++.h>
 using namespace std;
 

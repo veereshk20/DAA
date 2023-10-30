@@ -2,14 +2,14 @@
 using namespace std;
 
 void greedyAlgo(int arr[], int n) {
-    for (int i = n - 1; i > 0; i--) {
+    for(int i = n - 1; i > 0; i--) {
         int ptr = i;
-        for (int j = i - 1; j >= 0; j--) {
-            if (arr[j] > arr[ptr]) {
+        for(int j = i - 1; j >= 0; j--) {
+            if(arr[j] > arr[ptr]) {
                 ptr = j;
             }
         }
-        std :: swap(arr[i], arr[ptr]);
+        swap(arr[i], arr[ptr]);
     }
 }
 
@@ -24,8 +24,8 @@ int main() {
     }
     greedyAlgo(arr, n);
     cout << "Sorted array:-" << endl;
-    for (int i = 0; i < n; ++i) {
+    for(int i = 0; i < n; ++i) {
         cout << arr[i] << " ";
     }
-    return 1;
+    return 0;
 }

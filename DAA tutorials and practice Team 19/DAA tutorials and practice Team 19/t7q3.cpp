@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+void greedyAlgo(int arr[], int n) {
+    for(int i = n - 1; i > 0; i--) {
+        int ptr = i;
+        for(int j = i - 1; j >= 0; j--) {
+            if(arr[j] > arr[ptr]) {
+                ptr = j;
+            }
+        }
+        swap(arr[i], arr[ptr]);
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter the no.of elements: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter the elements of array:-" << endl;
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    greedyAlgo(arr, n);
+    cout << "Sorted array:-" << endl;
+    for(int i = 0; i < n; ++i) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}

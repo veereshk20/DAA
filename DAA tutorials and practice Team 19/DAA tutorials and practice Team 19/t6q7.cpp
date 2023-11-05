@@ -1,0 +1,49 @@
+#include<iostream>
+#include<vector>
+#include<climits> 
+using namespace std;
+
+int find_third_max(int arr[], int n, int &comparisons) {
+    if(n < 3) {
+        return -1; 
+    }
+    vector<int> max_elements(3, INT_MIN);
+    for(int i = 0; i < n; i++) {
+        comparisons++;
+        for(int i = 0; i < 3; i++) {
+            cout << max_elements[i] << " ";
+        }
+        cout << endl;
+        if(arr[i] > max_elements[0]) {
+            max_elements[2] = max_elements[1];
+            max_elements[1] = max_elements[0];
+            max_elements[0] = arr[i];
+        } else if(arr[i] > max_elements[1] && arr[i] < max_elements[0]) {
+            max_elements[2] = max_elements[1];
+            max_elements[1] = arr[i];
+        } else if(arr[i] > max_elements[2] && arr[i] < max_elements[1]) {
+            max_elements[2] = arr[i];
+        }
+    }
+    return max_elements[2];
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter the array elements:-" << endl;
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    int comparisons = 0;
+    int third_max = find_third_max(arr, n, comparisons);
+    if(third_max != -1) {
+        cout << "The third maximum element is: " << third_max << endl;
+        cout << "Number of comparisons: " << comparisons << endl;
+    } else {
+        cout << "The array does not have a third maximum element" << endl;
+    }
+    return 0;
+}

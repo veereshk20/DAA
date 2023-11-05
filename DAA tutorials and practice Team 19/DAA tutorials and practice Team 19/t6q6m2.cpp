@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+struct node {
+    int data;
+    struct node* link;
+};
+
+int main() {
+    struct node* head = NULL;
+    head = new node;
+    head->link = NULL;
+    int n;
+    cout << "Enter the number of people: ";
+    cin >> n;
+    struct node* ptr = head;
+    for(int i = 0; i < n; i++) {
+        if(i == 0) {
+            head->data = i + 1;
+        }
+        else {
+            struct node* temp = new node;
+            temp->data = i + 1;
+            temp->link = NULL;
+            ptr->link = temp;
+            ptr = ptr->link;
+        }
+    }
+    ptr->link = head;
+    ptr = head;
+    struct node* qtr;
+    while(ptr->link != ptr) {
+        qtr = ptr->link;
+        ptr->link = ptr->link->link;
+        delete qtr;
+        ptr = ptr->link;
+    }
+    cout << "Survivor: " << ptr->data;
+    delete head;
+    return 0;
+}

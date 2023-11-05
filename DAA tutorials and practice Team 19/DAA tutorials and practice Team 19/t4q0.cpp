@@ -1,7 +1,8 @@
 #include<bits\stdc++.h>
 using namespace std;
-void check_reflexive(vector<vector<int>>&v,int m){
-    for(int i=1;i<=m;i++)
+void check_reflexive(vector<vector<int>>&v,int n){
+    int flag=0;
+    for(int i=1;i<=n;i++)
     {
         if(v[i][i]!=1)
         {
@@ -10,13 +11,14 @@ void check_reflexive(vector<vector<int>>&v,int m){
         }
     }
     if(flag==1)
-    cout<<"Not reflexive";
+    cout<<"Not reflexive"<<endl;
     else
-    cout<<"Reflexive";
+    cout<<"Reflexive"<<endl;
 }
 
 void check_symmetric(vector<vector<int>>&v,int m,int n){
-    for(int i=1;i<=m;i++)
+    int flag=0;
+    for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=n;j++)
         {
@@ -52,6 +54,6 @@ int main()
         }
         cout<<endl;
     }
-    check_reflexive(v,m);
+    check_reflexive(v,n);
     check_symmetric(v,m,n);
 }
